@@ -1,12 +1,11 @@
 # -*- coding: UTF-8 -*-
 
-# Accept the time info of all course,and store it into a local file.
-# The info is store
+# Accept the timetable of all course,and store it into a local file as a dictionary.
 
 localurl = "/Users/royes/PycharmProjects/course selection helper/data"
 
 
-# Info is given as name and time_list
+# Course info is given by its name and a corresponding list: time_list
 # time_list = [[day1, time1], [day2, time2] ... ]
 def add_course(name, time_list):
     with open(localurl, "r+") as fo:
@@ -21,7 +20,7 @@ def add_course(name, time_list):
             fo.write(str(adict))
 
 
-# Pass the name to delete
+# Pass the name to delete the course
 def rm_course(name):
     with open(localurl, "r+") as fo:
         text = fo.read()
