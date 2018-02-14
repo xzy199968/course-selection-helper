@@ -12,7 +12,7 @@ class Database:
             if text is '':
                 self.courses = {}
             else:
-                self.course = eval(text)
+                self.courses = eval(text)
 
     def get_courses(self):
         return self.courses
@@ -28,7 +28,6 @@ class Database:
             del self.courses[name]
         except KeyError:
             print(name, ' doesn\'t exist!')
-
 
     def rm_all(self):
         if input('Are you sure to remove all courses in database?(Y to confirm)') == 'Y':
