@@ -11,9 +11,9 @@
  
 
 # 使用说明
-##1. 打开 main.py
-##2. 将 'local_url' 设置为你的文件路径
-##3. 修改课程资料库
+## 1 打开 main.py
+## 2 将 'local_url' 设置为你的文件路径
+## 3 修改课程资料库
   在<code>d = db.Database(local_url)</code>后面酌情写下以下命令
   - <code>d.rm_all()</code>\
     清空资料库
@@ -26,7 +26,7 @@
   - <code>d.save()</code>\
   保存这个数据库
   
- ##4. 得到所有的方案
+ ## 4 得到所有的方案
  所有的方案都被放在了一个叫"s.schemes()"的list，\
  使用语句
 <code>print([sc for sc in s.schemes()])</code>，你就可以看到所有的方案了！
