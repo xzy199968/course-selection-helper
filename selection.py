@@ -27,7 +27,7 @@ class Selection:
 
     def is_possible(self, cz_names):
         for day in ['周一', '周二', '周三', '周四', '周五', '周六', '周日']:
-            for time in range(1, 8):
+            for time in range(1, 13):
                 czs = [name for name in cz_names
                        if [day, time] in self.db.get_courses()[name]]
                 if len(czs) > 1:
