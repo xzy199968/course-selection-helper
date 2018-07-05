@@ -64,7 +64,7 @@ class application2(Frame):
     def createframe(self):
 
         self.name=None
-        savelist=[]
+        savelist=self.savelist
         self.high=Label(self,text='')
         self.data=Label(self,text='')
         title=Label(self,text="键入你的添加、删除课程，完毕后直接叉掉")
@@ -116,7 +116,7 @@ class application2(Frame):
         button2=Button(self,text='删除该课程（只需键入课程名，注意在删除前必须键入课程名！）',command=lambda:self.result2(input.get()))
         button2.grid(row=7,column=8)
         #######高级功能模块
-        lab2=Label(self,text='==================筛选条件：').grid(row=12)
+        lab2=Label(self,text='========筛选条件========').grid(row=12)
         #课程数多于某值
         numin=Entry(self)#一定要打self！！！！！
         numin.grid(row=13,column=5)
@@ -220,8 +220,6 @@ class application2(Frame):
                 if item==name:
                     notlist.pop(notlist.index(item))
             self.update()
-
-
     def num(self,numin):
         global minnum
         num=int(numin)
@@ -229,11 +227,16 @@ class application2(Frame):
         self.update()
 
     def getname(self,input):
-        self.name = input.get()
-        print ('getname', self.database.get_courses())
-        lab = Label(self,text='                                           ')
-        lab.grid(row=4,column=10)
-        return
+        if self.savelist!=[]:
+            lab2 = Label(self, text='之前键入的课程还未生成保存，请先点击生成课程以保存')
+            lab2.grid(row=4, column=10)
+        else:
+            self.name = input.get()
+            lab = Label(self,text='                                                                                 ')
+            lab.grid(row=4,column=10)
+            print ('savelist',self.savelist)
+            print ('getname', self.database.get_courses())
+            return
 
     def clear(self):
         print ('调用清空')
